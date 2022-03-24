@@ -1,0 +1,128 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 36px 0;
+
+    &__h1 {
+        @media only screen and (max-width: 600px){
+            font-size: 26px;
+        }
+    }
+
+    &__themes {
+        display: flex;
+        justify-content: flex;
+        align-items: center;
+
+        &__text {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        &__icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.search {
+    position: relative;
+    width: 100%;
+
+    &__search-bar {
+        width: 100%;
+        font-family: inherit;
+        font-size: 18px;
+        padding: 22px;
+        padding-left: 80px;
+        border-radius: 10px;
+        border: none;
+
+        @media only screen and (max-width: 600px) {
+            font-size: 13px;
+            padding: 20px;
+            padding-left: 50px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        
+        &:focus{
+            outline: none;
+            cursor: text;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        left: 6%;
+        transform: translate(-50%, -50%);
+
+        @media only screen and (max-width: 600px) {
+            left: 9%;
+        }
+    }
+
+    &__no-result {
+        display: none;
+        color: #F74646;
+        font-weight: 700;
+        font-size: 15px;
+        position: absolute;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+
+        @media only screen and (max-width: 800px) {
+            top: 50%;
+            left: 70%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            top: 115%;
+            left: 30%;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        border: none;
+        border-radius: 10px;
+        width: 106px;
+        height: 50px;
+        background-color: #0079FF;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        top: 50%;
+        left: 91%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s;
+
+        @media only screen and (max-width: 800px){
+            left: 89%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            font-size: 14px;
+            width: 84px;
+            height: 46px;
+            left: 85%;
+        }
+
+        &:hover{
+            cursor: pointer;
+            background-color: #60ABFF;
+        }
+    }
+}
