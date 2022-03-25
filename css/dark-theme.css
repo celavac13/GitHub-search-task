@@ -1,0 +1,54 @@
+body {
+    background-color: #141D2F;
+}
+
+.header__h1 {
+    color: #fff;
+}
+
+.header__themes > p,
+.header__themes > svg {
+    color: #fff;
+    fill: #fff;
+}
+
+.header__themes:hover p,
+.header__themes:hover svg {
+  color: #90A4D4;
+  fill: #90A4D4;
+}
+
+.search__search-bar {
+    background-color: #1E2A47;
+    color: #fff;
+}
+
+.search__search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.user-info {
+    background-color: #1E2A47;
+}
+
+.user-info__about__heading__name h1,
+.user-info__content__summary__info h2 {
+    color: #fff;
+}
+
+.user-info__about__heading__date,
+.user-info__content__bio,
+.user-info__content__summary__info h4 {
+    color: rgba(255, 255, 255, 0.603);
+}
+
+.user-info__content__summary {
+    background-color: #141D2F;
+}
+
+.user-info__content__links__item a,
+.user-info__content__links__item p,
+.user-info__content__links__item svg {
+    color: #fff;
+    fill: #fff;
+}

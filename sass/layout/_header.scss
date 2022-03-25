@@ -14,6 +14,10 @@
         justify-content: flex;
         align-items: center;
 
+        &:hover {
+            cursor: pointer;
+        }
+
         &__text {
             display: inline-block;
             margin-right: 10px;

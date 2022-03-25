@@ -1,0 +1,49 @@
+body {
+    background-color: #F6F8FF;
+}
+
+.header__h1 {
+    color: #000;
+}
+
+.header__themes > p,
+.header__themes > svg {
+    color: #697C9A;
+    fill: #697C9A;
+}
+
+.header__themes:hover p,
+.header__themes:hover svg {
+  color: #000;
+  fill: #000;
+}
+
+.search__search-bar {
+    color: #000;
+    box-shadow: 0 10px 20px rgba(95, 94, 94, 0.151);
+}
+
+.search__search-bar::placeholder {
+    color: rgba(75, 106, 155, 0.5);
+}
+
+.user-info {
+    box-shadow: 0 10px 20px rgba(95, 94, 94, 0.151);
+}
+
+.user-info__about__heading__date,
+.user-info__content__bio,
+.user-info__content__summary__info h4 {
+    color: rgba(75, 106, 155, 0.603);
+}
+
+.user-info__content__summary {
+    background-color: #F6F8FF;
+}
+
+.user-info__content__links__item a,
+.user-info__content__links__item p,
+.user-info__content__links__item svg {
+    color: #4B6A9B;
+}
+
