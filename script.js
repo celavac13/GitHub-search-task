@@ -4,9 +4,11 @@
 const btnSearch = document.querySelector(".search__btn");
 const inputSearch = document.querySelector(".search__search-bar");
 const errorLabel = document.querySelector(".search__no-result");
+let infoContainer = document.querySelector(".user-info");
+
 const theme = document.querySelector("#stylesheet");
 const themesSwitcher = document.querySelector(".header__themes");
-let infoContainer = document.querySelector(".user-info");
+
 
 
 // function for getting data
@@ -194,9 +196,7 @@ btnSearch.addEventListener("click", (e) => {
       const joinedDate = getJoinedDate(new Date(user.created_at));
       return renderUser(user, cLocation, twitter, blog, company, joinedDate);
     }).catch(err => console.error(err))
-})
-
-
+});
 
 // Themes switcher
 themesSwitcher.addEventListener("click", () => {
@@ -223,3 +223,5 @@ themesSwitcher.addEventListener("click", () => {
     `
   }
 })
+
+
