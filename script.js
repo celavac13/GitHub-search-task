@@ -1,15 +1,12 @@
 "use strict"
 
-
 const btnSearch = document.querySelector(".search__btn");
 const inputSearch = document.querySelector(".search__search-bar");
 const errorLabel = document.querySelector(".search__no-result");
 let infoContainer = document.querySelector(".user-info");
 
-const theme = document.querySelector("#stylesheet");
-const themesSwitcher = document.querySelector(".header__themes");
-
-
+// default value for input
+inputSearch.value = "octocat"
 
 // function for getting data
 const getJSON = function (url, errorMsg = "There is no user with that username") {
@@ -24,7 +21,6 @@ const getJSON = function (url, errorMsg = "There is no user with that username")
       return res.json();
     });
 }
-
 
 // functions to check if there is info about user
 const checkLocation = function (data) {
@@ -87,8 +83,6 @@ const getJoinedDate = function (d) {
   const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   return `${d.getDate()} ${month[d.getMonth()]} ${d.getFullYear()}`
 }
-
-
 
 // function for rendering user
 const renderUser = function (data, cLocation, twitter, blog, company, joinedDate) {
@@ -168,7 +162,6 @@ const renderUser = function (data, cLocation, twitter, blog, company, joinedDate
   infoContainer.insertAdjacentHTML("beforeend", html);
 }
 
-
 // input eventlistener for deleting error, and handling "enter"
 inputSearch.addEventListener("keydown", (e) => {
   if (errorLabel.style.display === "block") {
@@ -178,7 +171,6 @@ inputSearch.addEventListener("keydown", (e) => {
     btnSearch.click();
   }
 })
-
 
 // btn search
 btnSearch.addEventListener("click", (e) => {
@@ -201,6 +193,7 @@ btnSearch.addEventListener("click", (e) => {
 // Themes switcher
 themesSwitcher.addEventListener("click", () => {
   if (theme.getAttribute("href") === "css/dark-theme.css") {
+    localStorage.setItem("preferedDark", false);
     theme.href = "css/light-theme.css";
     themesSwitcher.innerHTML = `
       <p class="header__themes__text">dark</p>
@@ -211,6 +204,7 @@ themesSwitcher.addEventListener("click", () => {
       </svg>
     `
   } else if (theme.getAttribute("href") === "css/light-theme.css") {
+    localStorage.setItem("preferedDark", true);
     theme.href = "css/dark-theme.css";
     themesSwitcher.innerHTML = `
       <p class="header__themes__text">light</p>
@@ -224,4 +218,20 @@ themesSwitcher.addEventListener("click", () => {
   }
 })
 
+//default value
+window.addEventListener("load", () => {
+  const userName = inputSearch.value.toLowerCase();
+  errorLabel.style.display = "none";
+  infoContainer.innerHTML = "";
+
+  getJSON(`https://api.github.com/users/${userName}`)
+    .then(user => {
+      const cLocation = checkLocation(user.location);
+      const twitter = checkTwitter(user.twitter_username);
+      const blog = checkBlog(user.blog);
+      const company = checkCompany(user.company);
+      const joinedDate = getJoinedDate(new Date(user.created_at));
+      return renderUser(user, cLocation, twitter, blog, company, joinedDate);
+    }).catch(err => console.error(err))
+})
 

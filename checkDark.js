@@ -1,9 +1,11 @@
 const checkForDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const themeChange = document.querySelector("#stylesheet");
+const checkForDarkLS = JSON.parse(localStorage.preferedDark);
+const theme = document.querySelector("#stylesheet");
+const themesSwitcher = document.querySelector(".header__themes");
 
-if (checkForDark) {
-    themeChange.href = "css/dark-theme.css";
-    themesSwitcher.innerHTML = `
+if (checkForDark || checkForDarkLS) {
+  theme.href = "css/dark-theme.css";
+  themesSwitcher.innerHTML = `
       <p class="header__themes__text">light</p>
       <svg class="header__themes__icon" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
         <g fill-rule="nonzero">
